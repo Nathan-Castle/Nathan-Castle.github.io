@@ -2,6 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Typewriter from "typewriter-effect";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import AboutMe from "./AboutMe";
+import Experience from "./Experience";
+import Skills from "./Skills";
+import Projects from "./Projects";
 
 const App = () => {
   const [init, setInit] = useState(false);
@@ -124,111 +129,150 @@ const App = () => {
 
   if (!init) {
     return (
-      <div style={{
-        color: "#fff",
-        background: "#0d47a1",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh"
-      }}>
+      <div
+        style={{
+          color: "#fff",
+          background: "#0d47a1",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
         Initializing...
       </div>
     );
   }
 
   return (
-    <div style={{ position: "relative", height: "100vh", width: "100vw", overflow: "hidden", color: "#fff" }}>
-      {/* Background stars */}
-      <Particles
-        id="background-stars"
-        options={backgroundOptions}
+    <Router>
+      <div
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 0,
-        }}
-      />
-
-      {/* Foreground stars */}
-      <Particles
-        id="foreground-stars"
-        options={foregroundOptions}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 1,
-        }}
-      />
-
-      {/* Navigation */}
-      <header style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px",
-        zIndex: 1,
-        position: "relative"
-      }}>
-        <div style={{ fontWeight: "bold" }}>MY LOGO</div>
-        <nav style={{ display: "flex", gap: "20px" }}>
-          <a href="#home" style={linkStyle}>Home</a>
-          <a href="#about" style={linkStyle}>About</a>
-          <a href="#work" style={linkStyle}>Work</a>
-          <a href="#contact" style={linkStyle}>Contact</a>
-        </nav>
-      </header>
-
-      {/* Hero Section */}
-      <section style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "80vh",
-        textAlign: "center",
-        zIndex: 1,
-        position: "relative"
-      }}>
-        <h1 style={{ fontSize: "3em", marginBottom: "20px" }}>Hello, I am Nathan Castle</h1>
-        <h2 style={{ fontSize: "1.5em", marginBottom: "20px" }}>
-          <Typewriter
-            options={{
-              strings: ["Machine Learning Engineer", "Data Scientist", "AI Engineer"],
-              autoStart: true,
-              loop: true,
-              delay: 40,
-              deleteSpeed: 50,
-            }}
-          />
-        </h2>
-        <button style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          backgroundColor: "#3B82F6",
-          border: "none",
-          borderRadius: "5px",
+          position: "relative",
+          height: "100vh",
+          width: "100vw",
+          overflow: "hidden",
           color: "#fff",
-          cursor: "pointer",
-          fontSize: "1em"
-        }}>
-          View My Work
-        </button>
-      </section>
-    </div>
+        }}
+      >
+        {/* Background stars */}
+        <Particles
+          id="background-stars"
+          options={backgroundOptions}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 0,
+          }}
+        />
+
+        {/* Foreground stars */}
+        <Particles
+          id="foreground-stars"
+          options={foregroundOptions}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1,
+          }}
+        />
+
+        {/* Navigation */}
+        <header
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "20px",
+            zIndex: 1,
+            position: "relative",
+          }}
+        >
+          <div style={{ fontWeight: "bold" }}>MY LOGO</div>
+          <nav style={{ display: "flex", gap: "20px" }}>
+            <Link to="/" style={linkStyle}>Home</Link>
+            <Link to="/about" style={linkStyle}>About Me</Link>
+            <Link to="/experience" style={linkStyle}>Experience</Link>
+            <Link to="/skills" style={linkStyle}>Skills</Link>
+            <Link to="/projects" style={linkStyle}>Projects</Link>
+          </nav>
+        </header>
+
+        {/* Routes */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <section
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "80vh",
+                  textAlign: "center",
+                  zIndex: 1,
+                  position: "relative",
+                }}
+              >
+                <h1 style={{ fontSize: "3em", marginBottom: "20px" }}>
+                  Hello, I am Nathan Castle
+                </h1>
+                <h2 style={{ fontSize: "1.5em", marginBottom: "20px" }}>
+                  <Typewriter
+                    options={{
+                      strings: [
+                        "Machine Learning Engineer",
+                        "Data Scientist",
+                        "AI Engineer",
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      delay: 40,
+                      deleteSpeed: 50,
+                    }}
+                  />
+                </h2>
+                <Link to="/about">
+                  <button
+                    style={{
+                      marginTop: "20px",
+                      padding: "10px 20px",
+                      backgroundColor: "#3B82F6",
+                      border: "none",
+                      borderRadius: "5px",
+                      color: "#fff",
+                      cursor: "pointer",
+                      fontSize: "1em",
+                    }}
+                  >
+                    About Me
+                  </button>
+                </Link>
+              </section>
+            }
+          />
+          <Route path="/about" element={<AboutMe />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
 const linkStyle = {
   color: "#fff",
   textDecoration: "none",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  fontSize: "1.5em"
 };
 
 export default App;
