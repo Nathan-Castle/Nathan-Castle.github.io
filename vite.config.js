@@ -6,8 +6,7 @@ export default defineConfig(({ command }) => {
 
   return {
     plugins: [react()],
-    // Use '/' for development and '/Nathan-Castle.github.io/' for production
-    base: isBuild ? '/Nathan-Castle.github.io/' : '/',
+    base: isBuild ? '/Nathan-Castle.github.io/' : '/', // Use '/' for dev and '/Nathan-Castle.github.io/' for build
     build: {
       rollupOptions: {
         output: {
