@@ -7,6 +7,7 @@ import AboutMe from "./AboutMe";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import Projects from "./Projects";
+import './App.css'
 
 const App = () => {
   const [init, setInit] = useState(false);
@@ -191,10 +192,58 @@ const App = () => {
             alignItems: "center",
             padding: "20px",
             zIndex: 1,
-            position: "relative",
+            position: "sticky",
+            top: 0,
+            // backgroundColor: "#1c1d22"
           }}
         >
-          <div style={{ fontWeight: "bold" }}>MY LOGO</div>
+          {/* Left Logo and Social Media Icons */}
+          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+
+            {/* Logo */}
+            <a href="/" className="logo">
+              <img src="/me.JPG" alt="My Logo" />
+            </a>
+
+            {/* Social Media Icons */}
+            <div style={{ display: "flex", gap: "10px" }}>
+              <a 
+                href="https://linkedin.com/in/nathancastle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <img 
+                  src="/linkedin.png" 
+                  alt="LinkedIn" 
+                />
+              </a>
+              <a 
+                href="https://github.com/your-profile" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <img 
+                  src="/github.png" 
+                  alt="GitHub" 
+                />
+              </a>
+              <a 
+                href="https://instagram.com/your-profile" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <img 
+                  src="/instagram.png" 
+                  alt="Instagram" 
+                />
+              </a>
+            </div>
+          </div> 
+
+          {/* Navigation Links */}
           <nav style={{ display: "flex", gap: "20px" }}>
             <Link to="/" style={linkStyle}>Home</Link>
             <Link to="/about" style={linkStyle}>About Me</Link>
