@@ -8,7 +8,7 @@
 
 /* Logo styles for the top-left corner */
 .logo img {
-  height: 50px; /* Ensures the logo is appropriately sized */
+  height: 90px; /* Ensures the logo is appropriately sized */
   width: auto; /* Maintains the aspect ratio */
   border-radius: 50%; /* Makes the logo circular */
   display: inline-block; /* Ensures proper positioning */

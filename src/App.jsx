@@ -201,9 +201,9 @@ const App = () => {
           <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
 
             {/* Logo */}
-            <a href="/" className="logo">
-              <img src="/me.JPG" alt="My Logo" />
-            </a>
+            <Link to="/" className="logo">
+              <img src="/N2.png" alt="My Logo" />
+            </Link>
 
             {/* Social Media Icons */}
             <div style={{ display: "flex", gap: "10px" }}>
