@@ -2,6 +2,7 @@
   "name": "nathan-castle-site",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://nathan-castle.github.io",
   "type": "module",
   "scripts": {
     "dev": "vite",
