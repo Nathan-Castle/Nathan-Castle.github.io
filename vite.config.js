@@ -1,8 +1,19 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/'
-})
+  base: '/Nathan-Castle.github.io/', // Update this to match your GitHub Pages repo name
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          const extType = assetInfo.name.split('.').pop();
+          if (extType === 'css') return 'assets/css/[name]-[hash][extname]';
+          if (extType === 'js') return 'assets/js/[name]-[hash][extname]';
+          return 'assets/images/[name]-[hash][extname]'; // Images go to assets/images
+        },
+      },
+    },
+  },
+});
